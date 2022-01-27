@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Noticia+Text:wght@400;700&display=swap');
+:root {
+	--large-font: 2.2rem;
+	--med-font: 1.2rem;
+}
+@media screen and (min-width: 600px) {
+	:root {
+		--large-font: 3rem;
+		--med-font: 1.5rem;
+	}
+}
+@media (prefers-color-scheme: light) {
+	.default-theme {
+		--background-color: hsl(250, 5%, 95%);
+		--font-color: hsl(250, 5%, 10%);
+		--accent-color: hsl(250, 81%, 60%);
+	}
+	.alt-theme {
+		--background-color: hsl(250, 5%, 10%);
+		--font-color: hsl(250, 5%, 95%);
+		--accent-color: hsl(250, 71%, 77%);
+	}
+}
+@media (prefers-color-scheme: dark) {
+	.default-theme {
+		--background-color: hsl(250, 5%, 10%);
+		--font-color: hsl(250, 5%, 95%);
+		--accent-color: hsl(250, 71%, 77%);
+	}
+	.alt-theme {
+		--background-color: hsl(250, 5%, 95%);
+		--font-color: hsl(250, 5%, 10%);
+		--accent-color: hsl(250, 81%, 60%);
+	}
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	transition: .4s;
+	background-color: var(--background-color);
+	color: var(--font-color);
+	font-family: 'Noticia Text', serif;
+	min-height: 100vh;
+	display: grid;
+	place-items: center;
+	place-content: center;
+}
+main {
+	padding: 1rem 1.5rem;
+}
+h1 {
+	font-size: var(--large-font);
+	letter-spacing: .15rem;
+	margin-bottom: 2rem;
+}
+.color {
+	color: var(--accent-color);
+}
+section {
+	display: grid;
+	row-gap: 1rem;
+	text-transform: capitalize;
+}
+h3 {
+	font-size: var(--med-font);
+	font-weight: 400;
+	letter-spacing: .05rem;
+}
+.switch {
+	margin-bottom: 2rem;
+	position: relative;
+	display: inline-block;
+	width: 50px;
+	height: 29px;
+}
+.switch input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: var(--accent-color);
+	transition: .4s;
+}
+.slider:before {
+	position: absolute;
+	content: "";
+	height: 21px;
+	width: 21px;
+	left: 4px;
+	bottom: 4px;
+	background-color: var(--background-color);
+	transition: .4s;
+}
+input:checked + .slider {
+	background-color: var(--accent-color);
+}
+input:checked + .slider:before {
+	transform: translateX(20px);
+}
+.slider {
+	border-radius: 34px;
+}
+.slider:before {
+	border-radius: 50%;
+}
